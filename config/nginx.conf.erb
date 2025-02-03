@@ -7,7 +7,7 @@ http {
     keepalive_timeout 65;
 
     server {
-        listen <%= ENV["PORT"] %>;
+        listen <%= ENV["PORT"] 8080%>;
         root <%= ENV["HEROKU_APP_DIR"] %>/public;
         index index.html;
 
