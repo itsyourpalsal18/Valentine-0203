@@ -26,7 +26,7 @@ body {
 .border-container {
     position: relative;
     /* A subtle, paper-like background color; for a texture, you might use a background-image */
-    background: url('/images/Paper.jpg');
+    background: url('/Valentine-0203/images/Paper.jpg');
     /* A light, subtle border to mimic paper edges */
     background-size: 600px; /* width height */
     background-position: center;
