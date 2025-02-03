@@ -323,7 +323,7 @@ h1 {
     }
 
     .poem-container {
-        margin-top: 70px; /* Push poem down more on mobile */
+        margin-top: 25px; /* Push poem down more on mobile */
     }
 
     h1 {
@@ -331,8 +331,8 @@ h1 {
     }
 
     .valentine-button {
-        font-size: 20px;
-        padding: 10px 20px;
+        font-size: 15px;
+        padding: 10px 10px;
     }
 
     .gray-heart,
@@ -366,8 +366,9 @@ h1 {
         }
 
     .reveal-area {
-        height: 150px; /* Give more space for the heart */
-        margin-top: 50px;
+        height: 200px; /* Give more space for the heart */
+        margin-top: 0px;
+        padding: 10px;
     }
 
     .heart-container {
