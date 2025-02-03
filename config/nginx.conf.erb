@@ -10,5 +10,9 @@ http {
         listen <%= ENV["PORT"] %>;
         root <%= ENV["HEROKU_APP_DIR"] %>/public;
         index index.html;
+
+        location / {
+            try_files $uri $uri/ /index.html;
+        }
     }
 }
