@@ -1,0 +1,352 @@
+﻿/* Reset defaults */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+/* Define main color */
+:root {
+    --main-color: #dc143c;
+}
+
+/* Body setup with padding so content doesn’t touch the top or bottom */
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    padding: 40px 0;
+    background: #fab4b4;
+    font-family: 'Roboto', sans-serif;
+    color: #333;
+}
+
+
+.border-container {
+    position: relative;
+    /* A subtle, paper-like background color; for a texture, you might use a background-image */
+    background: url('/images/Paper.jpg');
+    /* A light, subtle border to mimic paper edges */
+    background-size: 600px; /* width height */
+    background-position: center;
+    background-repeat: no-repeat;
+    border: 10px solid #9d3a3e59;
+    /* Rounded corners */
+    border-radius: 5px;
+    /* Padding to create space inside the container */
+    padding: 50px;
+    /* A subtle box shadow for depth */
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+    /* Constrain the maximum width and center it */
+    max-width: 600px;
+    width: 500px;
+    margin: auto;
+    perspective: 1000px;
+}
+
+/* Common styles for the corner icons */
+.corner-icon {
+    position: absolute;
+    font-size: 32px; /* Adjust size as needed */
+    /* Optional: add some subtle drop shadow */
+    text-shadow: 1px 1px 3px rgba(0,0,0,0.3);
+}
+
+    /* Top left corner */
+    .corner-icon.top-left {
+        top: 10px;
+        left: 10px;
+    }
+
+    /* Top right corner */
+    .corner-icon.top-right {
+        top: 10px;
+        right: 10px;
+    }
+
+/* Poem styling */
+.poem-container {
+    margin-bottom: 20px;
+}
+
+.poem {
+    font-family: "Charm", serif;
+    font-weight: 400;
+    font-size: 20px;
+    font-style: normal;
+    line-height: 1.3;
+    color: #333;
+    text-align: center;
+}
+
+/* Reveal area: reserve space for the heart/response */
+.reveal-area {
+    position: relative;
+    height: 100px; /* Adjust this height as needed */
+    margin-bottom: 20px;
+}
+
+/* Heart container remains absolutely positioned so it centers within the reveal area */
+.heart-container {
+    display: flex;
+    position: absolute;
+    top: 30px;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    justify-content: center;
+}
+
+/* Response container is now relatively positioned so its content stays within reveal-area */
+.response-container {
+    text-align: center;
+    margin: 0px; /* Adjust to position the revealed content where desired */
+    position: relative;
+}
+
+/* GRAY HEART (Base of the button) */
+.gray-heart {
+    background: #7f7f7f;
+    width: 70px;
+    height: 70px;
+    display: inline-block;
+    position: absolute;
+    transform: rotate(-45deg);
+}
+
+    .gray-heart::before,
+    .gray-heart::after {
+        content: "";
+        background: #7f7f7f;
+        border-radius: 50%;
+        width: 70px;
+        height: 70px;
+        position: absolute;
+        opacity: 100%;
+        visibility: hidden;
+    }
+
+    .gray-heart::before {
+        top: -40px;
+        left: 0;
+        visibility: visible;
+    }
+
+    .gray-heart::after {
+        top: 0;
+        left: 40px;
+        visibility: visible;
+    }
+
+/* RED HEART (The pop animation overlay) */
+.red-heart {
+    background: var(--main-color);
+    width: 70px;
+    height: 70px;
+    display: inline-block;
+    position: absolute;
+    transform: rotate(-45deg);
+    visibility: hidden;
+}
+
+    .red-heart::before,
+    .red-heart::after {
+        content: "";
+        background: var(--main-color);
+        border-radius: 50%;
+        width: 70px;
+        height: 70px;
+        position: absolute;
+    }
+
+    .red-heart::before {
+        top: -40px;
+        left: 0;
+    }
+
+    .red-heart::after {
+        top: 0;
+        left: 40px;
+    }
+
+    .red-heart.animation {
+        animation: pop 1.4s linear;
+        visibility: visible;
+    }
+
+    .red-heart.fill-color {
+        background: var(--main-color);
+    }
+
+@keyframes pop {
+    100% {
+        transform: scale(5.2) rotate(-45deg);
+        opacity: 0;
+    }
+}
+
+/* Style for the text inside the gray heart */
+span {
+    position: absolute;
+    top: 40%;
+    left: 60%;
+    text-align: center;
+    transform: translate(-50%, -50%) rotate(45deg);
+    /* The rotate(45deg) is applied to counteract the parent’s rotation so the text appears upright */
+    font-size: 22px;
+    font-weight: bold;
+    color: #565255;
+    z-index: 100;
+    pointer-events: none; /* Ensure the text doesn't interfere with clicking the heart */
+}
+
+/* Utility class for hiding elements */
+.hidden {
+    opacity: 100%;
+    display: none;
+}
+
+/* Styling for the revealed question (H1) using the original font */
+h1 {
+    font-family: 'Great Vibes', cursive;
+    font-size: 28px;
+    text-align: center;
+    color: var(--main-color);
+    text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.2);
+}
+
+/* Keyframes for a fade-in and slide-up animation */
+@keyframes fadeInUp {
+    0% {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* This class will animate the button on reveal */
+.button-reveal {
+    animation: fadeInUp 0.5s ease-out forwards;
+}
+
+/* Response buttons group */
+.button-group {
+    display: flex;
+    flex-direction: row;
+    gap: 10px;
+    margin-top: 10px;
+    justify-content: center;
+}
+
+#responseButtons button {
+    /* By default, if the parent container is hidden, these are hidden.
+     If needed, you can also add: */
+    display: none;
+}
+    /* When the "hidden" class is removed, they should be displayed. */
+    #responseButtons button:not(.hidden) {
+        display: block;
+    }
+
+.valentine-button {
+    font-family: 'Dancing Script', cursive;
+    font-size: 20px;
+    color: #fff;
+    /* Softer gradient using transparency */
+    background: linear-gradient(135deg, #dc143c 80%, #f06595 100%);
+    border: 2px solid #a0122d;
+    border-radius: 50px;
+    padding: 5px 15px;
+    text-align: center;
+    cursor: pointer;
+    outline: none;
+    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.2);
+    transition: background 0.3s ease, transform 0.5s ease, box-shadow 0.2s ease;
+    z-index: 9999;
+}
+
+    .valentine-button:hover {
+        background: linear-gradient(135deg, #dc143c, #a0122d);
+        transform: scale(1.05);
+        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+    }
+
+/* Confetti Style */
+.confetti {
+    position: fixed;
+    top: -50px;
+    pointer-events: none; /* So they don’t block clicks */
+    animation: confetti-fall linear forwards;
+}
+
+/* Keyframes for heart confetti animation */
+@keyframes confetti-fall {
+    0% {
+        transform: translateY(0) rotate(0deg);
+        opacity: 1;
+    }
+
+    100% {
+        transform: translateY(100vh) rotate(720deg); /* Falls downward by 100vh */
+        opacity: 0;
+    }
+}
+
+/* Media Queries for Responsiveness */
+@media only screen and (max-width: 600px) {
+    .border-container {
+        width: 90%;
+        padding: 15px;
+    }
+
+    .poem {
+        font-size: 16px;
+    }
+
+    h1 {
+        font-size: 28px;
+    }
+
+    .valentine-button {
+        font-size: 20px;
+        padding: 10px 20px;
+    }
+
+    .gray-heart,
+    .red-heart {
+        width: 50px;
+        height: 50px;
+    }
+
+        .gray-heart::before,
+        .gray-heart::after,
+        .red-heart::before,
+        .red-heart::after {
+            width: 50px;
+            height: 50px;
+        }
+
+        .gray-heart::before {
+            top: -30px;
+        }
+
+        .gray-heart::after {
+            left: 30px;
+        }
+
+        .red-heart::before {
+            top: -30px;
+        }
+
+        .red-heart::after {
+            left: 30px;
+        }
+
+    .reveal-area {
+        min-height: 120px;
+    }
+}

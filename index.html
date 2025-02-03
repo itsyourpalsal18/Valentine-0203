@@ -1,0 +1,57 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Will You Be My Valentine?</title>
+    <!-- Load the Google Font -->
+    <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&display=swap" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script&display=swap" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=Charm&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/css/style.css" />
+</head>
+<body>
+    <div class="container">
+        <div class="border-container">
+            <!-- Corner icons -->
+            <div class="corner-icon top-left">💌</div>
+            <div class="corner-icon top-right">🕊️</div>
+
+            <!-- Poem Section -->
+            <div class="poem-container">
+                <p class="poem">
+                    A year as friends, a bond so true, <br />
+                    God’s hand at work in me and you. <br />
+                    Through every laugh, through every prayer, <br />
+                    He led our hearts to something rare. <br /><br />
+                    A month as yours, and now I see, <br />
+                    How blessed this love was meant to be. <br />
+                    So with all my heart, I ask today— <br />
+                </p>
+            </div>
+
+            <!-- Reveal Area: This area will hold the heart and later the response content -->
+            <div class="reveal-area">
+                <!-- Heart Button Container -->
+                <div class="heart-container">
+                    <div class="gray-heart"><span>Press Me!</span></div>
+                    <div class="red-heart"></div>
+                </div>
+
+                <!-- Response Container (hidden by default) -->
+                <div class="response-container hidden" id="responseContainer">
+                    <h1 id="typedText" class="hidden"></h1>
+                    <div class="button-group hidden" id="responseButtons">
+                        <button class="valentine-button hidden" id="noButton">No. I Won't.</button>
+                        <button class="valentine-button hidden" id="maybeButton">Maybe...</button>
+                        <button class="valentine-button hidden" id="yesButton">Yes, duh!</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="/js/script.js"></script>
+</body>
+</html>
