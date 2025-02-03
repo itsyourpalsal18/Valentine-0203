@@ -1,1 +1,1 @@
-web: nginx -c config/nginx.conf.erb
+web: nginx -g 'daemon off;'
