@@ -298,6 +298,21 @@ h1 {
 
 /* Media Queries for Responsiveness */
 @media only screen and (max-width: 600px) {
+
+    .corner-icon {
+        font-size: 24px; /* Reduce emoji size */
+    }
+
+        .corner-icon.top-left {
+            top: 5px;
+            left: 2vw; /* Use viewport width instead of fixed pixels */
+        }
+
+        .corner-icon.top-right {
+            top: 5px;
+            right: 2vw; /* Keeps icons positioned better */
+        }
+
     .border-container {
         width: 90%;
         padding: 15px;
@@ -305,6 +320,10 @@ h1 {
 
     .poem {
         font-size: 16px;
+    }
+
+    .poem-container {
+        margin-top: 70px; /* Push poem down more on mobile */
     }
 
     h1 {
@@ -347,6 +366,11 @@ h1 {
         }
 
     .reveal-area {
-        min-height: 120px;
+        height: 150px; /* Give more space for the heart */
+        margin-top: 50px;
+    }
+
+    .heart-container {
+        top: 70px; /* Move heart even lower */
     }
 }
