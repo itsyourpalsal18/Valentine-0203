@@ -16,7 +16,7 @@ function moveNoButtonRandomly() {
     const randomY = (Math.random() - 0.5) * 800; // roughly -200px to 200px
 
     // Apply a smooth transition and update the transform
-    noButton.style.transition = "transform 0.2s ease";
+    noButton.style.transition = "transform 0.1s ease";
     noButton.style.transform = `translate(${randomX}px, ${randomY}px)`;
 }
 
